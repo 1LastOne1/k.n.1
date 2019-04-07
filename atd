@@ -1,0 +1,44 @@
+#include <iostream>
+class data
+{
+public:
+    virtual void  showSomthing (){};
+    virtual void  saveSomthing (){};
+    virtual void  doSomthing (){};
+    virtual ~data() {std::cout << "data deleted" << std::endl;}
+};
+ 
+class signals:public data
+{
+public:
+    virtual void  showSomthing () {}
+    virtual void  saveSomthing () {}
+    virtual void  doSomthing () {}
+    virtual ~signals() {std::cout << "signal deleted"<< std::endl;}
+};
+ 
+ 
+class result  : public data
+{
+public:
+    virtual void  showSomthing () {}
+    virtual void  saveSomthing () {}
+    virtual void  doSomthing () {}
+};
+ 
+class subsidiaryData  : public data
+{
+public:
+    virtual void  showSomthing () {}
+    virtual void  saveSomthing () {}
+    virtual void  doSomthing () {}
+};
+ 
+int main(){
+    data * pSignal = new signals;
+    delete pSignal;
+    data* pResult = new result();
+    data* pSubsidiaryData = new subsidiaryData();
+    system("pause");
+    return 0;
+}
